@@ -12,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroGit">
-        <activity android:name=".features.onboarding.OnboardingActivity" />
+        <activity android:name=".features.onboarding.OnboardingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="oauthcallback" android:scheme="github" />
+            </intent-filter>
+        </activity>
         <activity android:name=".features.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
