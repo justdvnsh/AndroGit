@@ -1,0 +1,6 @@
+include ':domain'
+include ':testing'
+include ':utility'
+include ':data'
+include ':app'
+rootProject.name = "AndroGit"
