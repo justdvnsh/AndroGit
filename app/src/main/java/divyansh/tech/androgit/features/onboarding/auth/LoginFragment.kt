@@ -3,6 +3,7 @@ package divyansh.tech.androgit.features.onboarding.auth
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,6 +54,7 @@ class LoginFragment : Fragment() {
 
         if (token != null && token.toString().startsWith(C.OAUTH_REDIRECT_URL)) {
             startActivity(Intent(requireContext(), MainActivity::class.java))
+            Log.i("GITHUB", token.toString())
             Toast.makeText(
                 requireContext(),
                 token.getQueryParameter("code").toString(),

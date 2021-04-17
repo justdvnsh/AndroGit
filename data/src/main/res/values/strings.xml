@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+    <string name="client_id">client_id</string>
+    <string name="client_secret">client_secret</string>
+    <string name="access_code">code</string>
+</resources>
