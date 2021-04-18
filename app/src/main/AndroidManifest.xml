@@ -20,7 +20,7 @@
                 <data android:host="oauthcallback" android:scheme="github" />
             </intent-filter>
         </activity>
-        <activity android:name=".features.SplashActivity">
+        <activity android:name=".features.onboarding.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

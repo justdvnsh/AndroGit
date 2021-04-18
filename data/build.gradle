@@ -51,6 +51,15 @@ dependencies {
     api "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
+    // Coroutines
+    api(
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    )
+
+    // Preference DataStore
+    implementation "androidx.datastore:datastore-preferences:$pref_dataStore"
+
     // retrofit and moshi
     api(
         "com.squareup.retrofit2:converter-moshi:$moshi",

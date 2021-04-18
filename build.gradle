@@ -19,6 +19,7 @@ buildscript {
         coroutines = "1.4.1"
         dagger_compiler= "1.0.0-beta01"
         dagger_viewModels = "1.0.0-alpha03"
+        pref_dataStore = "1.0.0-alpha08"
     }
 
     repositories {

@@ -1,6 +1,7 @@
 package divyansh.tech.domain
 
 import divyansh.tech.data.api.AuthenticationService
+import divyansh.tech.data.persistence.DataStoreManager
 import divyansh.tech.utility.C
 import javax.inject.Inject
 
@@ -8,7 +9,8 @@ import javax.inject.Inject
 * Authentication Repository which gets and saves the access token
 * */
 class AuthRepo @Inject constructor(
-    private val authService: AuthenticationService
+    private val authService: AuthenticationService,
+    private val dataStore: DataStoreManager
 ) {
 
     /*
@@ -31,7 +33,8 @@ class AuthRepo @Inject constructor(
     * */
     suspend fun saveAccessToken(
         accessToken: String
-    ): Boolean {
-        return false
-    }
+    ) = dataStore.setAuthToken(accessToken)
+
+    suspend fun fetchAccessToken() =
+        dataStore.authToken
 }

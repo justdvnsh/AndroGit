@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import divyansh.tech.data.models.AuthToken
 import divyansh.tech.domain.AuthRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.Dispatchers
@@ -20,8 +21,8 @@ class LoginViewModel @Inject constructor(
     private val authRepo: AuthRepo
 ): ViewModel() {
 
-    private val _status: MutableLiveData<ResultWrapper<Boolean>> = MutableLiveData()
-    val status: LiveData<ResultWrapper<Boolean>>
+    private val _status: MutableLiveData<ResultWrapper<AuthToken>> = MutableLiveData()
+    val status: LiveData<ResultWrapper<AuthToken>>
         get() = _status
 
     /*
@@ -35,8 +36,8 @@ class LoginViewModel @Inject constructor(
         if (response.isSuccessful) {
             response.body()?.let {
                 withContext(Dispatchers.IO) {
-                    val saved = authRepo.saveAccessToken(it.access_token)
-                    _status.value = ResultWrapper.Success(saved)
+                    authRepo.saveAccessToken(it.access_token)
+                    _status.value = ResultWrapper.Success(it)
                 }
             }
         } else {
