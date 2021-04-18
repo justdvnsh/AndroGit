@@ -6,7 +6,9 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import divyansh.tech.utility.C
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import java.io.IOException
 
 private val Context.dataStore by preferencesDataStore(
     name = C.USER_PREF_FILENAME
@@ -34,7 +36,11 @@ class DataStoreManager(context: Context) {
         }
     }
 
-    val authToken: Flow<String?> = userDataStore.data.map {
-        it[PreferenceKeys.AUTH_TOKEN] ?: null
-    }
+    val authToken: Flow<String> = userDataStore.data
+        .map {
+            it[PreferenceKeys.AUTH_TOKEN] ?: ""
+        }.catch {
+            if (it is IOException) emit("")
+            else throw it
+        }
 }

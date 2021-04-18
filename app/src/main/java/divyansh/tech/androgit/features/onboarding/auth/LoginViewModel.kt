@@ -1,5 +1,6 @@
 package divyansh.tech.androgit.features.onboarding.auth
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import divyansh.tech.data.models.AuthToken
 import divyansh.tech.domain.AuthRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -37,11 +39,11 @@ class LoginViewModel @Inject constructor(
             response.body()?.let {
                 withContext(Dispatchers.IO) {
                     authRepo.saveAccessToken(it.access_token)
-                    _status.value = ResultWrapper.Success(it)
+                    _status.postValue(ResultWrapper.Success(it))
                 }
             }
         } else {
-            _status.value = ResultWrapper.Error(response.message())
+            _status.postValue(ResultWrapper.Error(response.message()))
         }
     }
 }

@@ -12,14 +12,11 @@ import divyansh.tech.androgit.features.onboarding.splash.SplashViewModel
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val splashViewModel: SplashViewModel by viewModels()
+    // TODO: Add navigation and Bottom Bar
+    //TODO: Add Side Drawer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        splashViewModel.isUserLoggedIn()
-        splashViewModel.accessToken.observe(this, Observer {
-            if (it) Toast.makeText(this, "HURRAY", Toast.LENGTH_SHORT).show()
-        })
     }
 }

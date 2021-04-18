@@ -35,6 +35,6 @@ class AuthRepo @Inject constructor(
         accessToken: String
     ) = dataStore.setAuthToken(accessToken)
 
-    suspend fun fetchAccessToken() =
+    fun fetchAccessToken() =
         dataStore.authToken
 }

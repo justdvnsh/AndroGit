@@ -19,14 +19,14 @@ interface AuthenticationService {
     * @param client_secret -> Client SECRET generated from github
     * @param code -> Access Code generated from github
     *
-    * @returns AuthToken
+    * @returns Response<AuthToken>
     * */
     @Headers("Accept: application/json")
-    @POST("/login/oauth/access_token")
+    @POST("login/oauth/access_token")
     @FormUrlEncoded
     suspend fun getAccessToken(
         @Field("client_id") client_id: String,
         @Field("client_secret") client_secret: String,
-        @Field("code") access_code: String,
+        @Field("code") access_code: String
     ): Response<AuthToken>
 }

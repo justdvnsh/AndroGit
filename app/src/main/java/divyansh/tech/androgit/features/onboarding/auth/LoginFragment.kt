@@ -1,5 +1,6 @@
 package divyansh.tech.androgit.features.onboarding.auth
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,13 +11,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.androgit.R
 import divyansh.tech.androgit.databinding.FragmentLoginBinding
 import divyansh.tech.androgit.features.MainActivity
 import divyansh.tech.androgit.features.onboarding.OnboardingActivity
 import divyansh.tech.utility.C
+import divyansh.tech.utility.ResultWrapper
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -40,6 +44,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupObservers()
         binding.oAuthButton.setOnClickListener {
             startActivity(
                 Intent(
@@ -55,11 +60,22 @@ class LoginFragment : Fragment() {
         val token = (activity as OnboardingActivity).intent.data
 
         if (token != null && token.toString().startsWith(C.OAUTH_REDIRECT_URL)) {
-            startActivity(Intent(requireContext(), MainActivity::class.java))
             Log.i("GITHUB", token.toString())
             viewModel.authorizeUser(
                 token.getQueryParameter("code").toString()
             )
         }
+    }
+
+    private fun setupObservers() {
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is ResultWrapper.Success -> //TODO: Finish the onboarding activity
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                is ResultWrapper.Error ->
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                else -> {}
+            }
+        })
     }
 }
