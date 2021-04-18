@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.androgit.R
 import divyansh.tech.androgit.databinding.FragmentLoginBinding
@@ -21,6 +22,7 @@ import divyansh.tech.utility.C
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,11 +57,9 @@ class LoginFragment : Fragment() {
         if (token != null && token.toString().startsWith(C.OAUTH_REDIRECT_URL)) {
             startActivity(Intent(requireContext(), MainActivity::class.java))
             Log.i("GITHUB", token.toString())
-            Toast.makeText(
-                requireContext(),
-                token.getQueryParameter("code").toString(),
-                Toast.LENGTH_SHORT
-            ).show()
+            viewModel.authorizeUser(
+                token.getQueryParameter("code").toString()
+            )
         }
     }
 }

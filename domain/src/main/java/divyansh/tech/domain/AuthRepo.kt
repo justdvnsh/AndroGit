@@ -23,4 +23,15 @@ class AuthRepo @Inject constructor(
        client_secret = C.CLIENT_SECRET,
        access_code = accessCode
    )
+
+    /*
+    * Suspend function to save the access token to disk
+    * @param accessToken -> The access Token received from Github
+    * @returns Boolean
+    * */
+    suspend fun saveAccessToken(
+        accessToken: String
+    ): Boolean {
+        return false
+    }
 }

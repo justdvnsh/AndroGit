@@ -28,5 +28,5 @@ interface AuthenticationService {
         @Field("client_id") client_id: String,
         @Field("client_secret") client_secret: String,
         @Field("code") access_code: String,
-    ): Response<ResultWrapper<AuthToken>>
+    ): Response<AuthToken>
 }
