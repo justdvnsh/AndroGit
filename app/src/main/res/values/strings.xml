@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">AndroGit</string>
     <string name="title_dynamicfeature">Onboarding</string>
+    <string name="feed">Feed</string>
+    <string name="issues">Issues</string>
+    <string name="pr_s">PR\'s</string>
+    <string name="pull_requests">Pull Requests</string>
+    <string name="profile">Profile</string>
 </resources>

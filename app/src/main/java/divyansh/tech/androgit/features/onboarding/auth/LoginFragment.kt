@@ -1,6 +1,5 @@
 package divyansh.tech.androgit.features.onboarding.auth
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,13 +10,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.androgit.R
 import divyansh.tech.androgit.databinding.FragmentLoginBinding
-import divyansh.tech.androgit.features.MainActivity
+import divyansh.tech.androgit.features.home.MainActivity
 import divyansh.tech.androgit.features.onboarding.OnboardingActivity
 import divyansh.tech.utility.C
 import divyansh.tech.utility.ResultWrapper

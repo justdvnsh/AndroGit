@@ -3,16 +3,12 @@ package divyansh.tech.androgit.features.onboarding.splash
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.androgit.R
-import divyansh.tech.androgit.features.MainActivity
+import divyansh.tech.androgit.features.home.MainActivity
 import divyansh.tech.androgit.features.onboarding.OnboardingActivity
-import divyansh.tech.androgit.features.onboarding.auth.LoginViewModel
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
