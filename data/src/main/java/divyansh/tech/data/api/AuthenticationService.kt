@@ -1,12 +1,10 @@
 package divyansh.tech.data.api
 
 import divyansh.tech.data.models.AuthToken
+import divyansh.tech.utility.C
 import divyansh.tech.utility.ResultWrapper
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /*
 * API interface which contains the calls to Authentication Service
@@ -21,10 +19,11 @@ interface AuthenticationService {
     *
     * @returns Response<AuthToken>
     * */
-    @Headers("Accept: application/json")
-    @POST("login/oauth/access_token")
+    @Headers("Accept: application/json", "User-Agent: request")
+    @POST
     @FormUrlEncoded
     suspend fun getAccessToken(
+        @Url url: String = C.ACCESS_TOKEN_URL,
         @Field("client_id") client_id: String,
         @Field("client_secret") client_secret: String,
         @Field("code") access_code: String

@@ -1,4 +1,4 @@
-package divyansh.tech.domain
+package divyansh.tech.domain.onboarding
 
 import divyansh.tech.data.api.AuthenticationService
 import divyansh.tech.data.persistence.DataStoreManager

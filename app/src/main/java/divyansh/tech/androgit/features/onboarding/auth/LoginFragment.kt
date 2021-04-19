@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
                 is ResultWrapper.Success -> //TODO: Finish the onboarding activity
                     startActivity(Intent(requireContext(), MainActivity::class.java))
                 is ResultWrapper.Error ->
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
                 else -> {}
             }
         })
