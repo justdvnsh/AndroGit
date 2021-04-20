@@ -16,6 +16,7 @@ private val Context.dataStore by preferencesDataStore(
 
 private object PreferenceKeys {
     val AUTH_TOKEN = stringPreferencesKey("auth_token")
+    val USERNAME = stringPreferencesKey("username")
 }
 /*
 * Preference Data Store Manager class. Provides utility functions to
@@ -39,6 +40,20 @@ class DataStoreManager(context: Context) {
     val authToken: Flow<String> = userDataStore.data
         .map {
             it[PreferenceKeys.AUTH_TOKEN] ?: ""
+        }.catch {
+            if (it is IOException) emit("")
+            else throw it
+        }
+
+    suspend fun setUsername(username: String) {
+        userDataStore.edit {
+            it[PreferenceKeys.USERNAME] = username
+        }
+    }
+
+    val username: Flow<String> = userDataStore.data
+        .map {
+            it[PreferenceKeys.USERNAME] ?: ""
         }.catch {
             if (it is IOException) emit("")
             else throw it

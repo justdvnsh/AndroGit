@@ -16,4 +16,9 @@ object C {
     * Data Constants
     * */
     const val USER_PREF_FILENAME = "settings"
+
+    /*
+    * USER CONSTANTS
+    * */
+    const val USER_CACHE_FILENAME = "user_profile"
 }

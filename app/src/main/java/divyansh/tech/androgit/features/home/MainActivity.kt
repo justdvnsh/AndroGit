@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.getUserProfile()
         viewModel.user.observe(this, Observer {
             when (it) {
-                is ResultWrapper.Error -> Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                is ResultWrapper.Error -> Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
                 is ResultWrapper.Success -> setupBottomBar()
-                else -> Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+                else -> {}
             }
         })
     }

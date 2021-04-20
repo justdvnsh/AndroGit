@@ -3,6 +3,7 @@ package divyansh.tech.data.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 /*
 * User data class
@@ -86,4 +87,4 @@ data class User(
     val updatedAt: String, // 2008-01-14T04:33:35Z
     @Json(name = "url")
     val url: String // https://api.github.com/users/octocat
-)
+): Serializable

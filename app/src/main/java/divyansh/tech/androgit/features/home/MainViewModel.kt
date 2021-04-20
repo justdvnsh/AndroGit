@@ -25,12 +25,10 @@ class MainViewModel @Inject constructor(
     fun getUserProfile() = viewModelScope.launch {
         _user.postValue(ResultWrapper.Loading())
         val response = userRepo.getUserProfile()
-//        Log.i("VIEWMODEL", response.raw().request().toString())
-//        Log.i("VIEWMODEL", response.raw().toString())
         if (response.isSuccessful) {
             response.body()?.let {
-                Log.i("VIEWMODEL",  it.toString())
                 _user.postValue(ResultWrapper.Success(it))
+                userRepo.cacheUser(it.login)
             }
         } else _user.postValue(ResultWrapper.Error(response.message()))
     }

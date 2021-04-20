@@ -47,7 +47,10 @@ class LoginFragment : Fragment() {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse(C.OAUTH_URL + "?client_id=" + C.CLIENT_ID)
+                    Uri.parse(
+                        C.OAUTH_URL + "?client_id=" + C.CLIENT_ID +
+                                "&scope=repo%20user%20read:user%20gist%20notifications%20read:discussion%20write:discussion"
+                    )
                 )
             )
         }

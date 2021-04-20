@@ -31,14 +31,13 @@ class InterceptorClass @Inject constructor(
             if (token.isNotEmpty()) {
                 Log.i("VIEWMODEL", token)
                 newRequest
-                    .addHeader("Authorization", "token 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")
+                    .addHeader("Authorization", "token $token")
                     .addHeader("Accept", "application/json")
-                    .addHeader("User-Agent", "request")
+                    .addHeader("Cookie", "_octo=GH1.1.649003995.1618838566; logged_in=true")
             } else {
                 Log.i("VIEWMODEL", "EMPTY TOKEN")
             }
         }
-        Log.i("VIEWMODEL::NEWREQUEST", newRequest.toString())
         return chain.proceed(newRequest.build())
     }
 }
