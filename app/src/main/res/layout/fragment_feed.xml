@@ -9,6 +9,7 @@
         >
 
         <TextView
+            android:id="@+id/feed"
             android:text="Feed Fragment"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"

@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         fetchUser()
     }
 
+    /*
+    * Function to call viewModel's function to get the Username of the user,
+    * for further authentication calls !
+    * */
     private fun fetchUser() {
         viewModel.getUserProfile()
         viewModel.user.observe(this, Observer {
@@ -48,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /*
+    * Function to setup the Bottom bar and listener
+    * */
     private fun setupBottomBar() {
         setCurrentFragment(feedFragment)
 

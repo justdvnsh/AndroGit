@@ -32,8 +32,8 @@ class InterceptorClass @Inject constructor(
                 Log.i("VIEWMODEL", token)
                 newRequest
                     .addHeader("Authorization", "token $token")
-                    .addHeader("Accept", "application/json")
-                    .addHeader("Cookie", "_octo=GH1.1.649003995.1618838566; logged_in=true")
+                    .addHeader("User-Agent", "AndroGit")
+                    .addHeader("Cookie", "_octo=GH1.1.649003995.1618838566; logged_in=yes")
             } else {
                 Log.i("VIEWMODEL", "EMPTY TOKEN")
             }

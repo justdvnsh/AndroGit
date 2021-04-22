@@ -1,10 +1,8 @@
 package divyansh.tech.data.api
 
-import divyansh.tech.data.annotations.WithInterceptor
-import divyansh.tech.data.models.User
+import divyansh.tech.data.models.Users.User
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Headers
 
 /*
 * API interface which call to user services

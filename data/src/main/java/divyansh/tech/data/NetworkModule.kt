@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import divyansh.tech.data.annotations.WithInterceptor
 import divyansh.tech.data.api.AuthenticationService
+import divyansh.tech.data.api.FeedService
 import divyansh.tech.data.api.ProfileService
 import divyansh.tech.utility.C
 import okhttp3.OkHttpClient
@@ -59,4 +60,16 @@ class NetworkModule {
         retrofit: Retrofit
     ): ProfileService =
         retrofit.create(ProfileService::class.java)
+
+    /*
+    * Provides the feed service interface
+    * @param retrofit -> Retrofit instance
+    * @returns FeedService instance
+    * */
+    @Provides
+    @Singleton
+    fun providesFeedService(
+        retrofit: Retrofit
+    ): FeedService =
+        retrofit.create(FeedService::class.java)
 }

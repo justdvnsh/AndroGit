@@ -1,8 +1,7 @@
-package divyansh.tech.data.models
+package divyansh.tech.data.models.Users
 
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /*

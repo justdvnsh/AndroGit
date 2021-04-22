@@ -1,17 +1,7 @@
 package divyansh.tech.domain.home
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
 import divyansh.tech.data.api.ProfileService
-import divyansh.tech.data.models.User
 import divyansh.tech.data.persistence.DataStoreManager
-import divyansh.tech.utility.C
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import java.io.File
-import java.io.FileOutputStream
-import java.io.ObjectOutputStream
-import java.lang.Exception
 import javax.inject.Inject
 
 /*
