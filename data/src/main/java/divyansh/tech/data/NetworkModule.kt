@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import divyansh.tech.data.annotations.WithInterceptor
 import divyansh.tech.data.api.AuthenticationService
 import divyansh.tech.data.api.FeedService
+import divyansh.tech.data.api.IssueService
 import divyansh.tech.data.api.ProfileService
 import divyansh.tech.utility.C
 import okhttp3.OkHttpClient
@@ -72,4 +73,16 @@ class NetworkModule {
         retrofit: Retrofit
     ): FeedService =
         retrofit.create(FeedService::class.java)
+
+    /*
+    * Provides the issue service interface
+    * @param retrofit -> Retrofit instance
+    * @returns IssueService instance
+    * */
+    @Provides
+    @Singleton
+    fun provideIssueService(
+        retrofit: Retrofit
+    ): IssueService =
+        retrofit.create(IssueService::class.java)
 }

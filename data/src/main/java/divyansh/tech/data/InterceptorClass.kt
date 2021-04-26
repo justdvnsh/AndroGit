@@ -38,6 +38,7 @@ class InterceptorClass @Inject constructor(
                 Log.i("VIEWMODEL", "EMPTY TOKEN")
             }
         }
+        Log.i("REQUEST", newRequest.build().url().toString())
         return chain.proceed(newRequest.build())
     }
 }
