@@ -1,22 +1,21 @@
 package divyansh.tech.data.models.Events
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 data class Payload(
-    @Json(name = "before")
-    val before: String, // ed633eab6f98a748d20179bb595b81c29f415956
-    @Json(name = "commits")
+    @SerializedName("before")
+    val before: String, // 3944a2e3ef5905addb724608198e36be06609ba2
+    @SerializedName("commits")
     val commits: List<Commit>,
-    @Json(name = "distinct_size")
+    @SerializedName("distinct_size")
     val distinctSize: Int, // 1
-    @Json(name = "head")
-    val head: String, // db2ba1dd49af70433474e998ee9d5faae348fb98
-    @Json(name = "push_id")
-    val pushId: Long, // 6928019256
-    @Json(name = "ref")
-    val ref: String, // refs/heads/feat/credentials_login
-    @Json(name = "size")
-    val size: Int // 28
+    @SerializedName("head")
+    val head: String, // 288517b6e9ea042e5c4568a52e6935e1d43ac598
+    @SerializedName("push_id")
+    val pushId: Long, // 6954297418
+    @SerializedName("ref")
+    val ref: String, // refs/heads/develop
+    @SerializedName("size")
+    val size: Int // 1
 )

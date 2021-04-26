@@ -1,19 +1,15 @@
 package divyansh.tech.data.models.Users
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
-/*
-* data plan class for user
-* */
 data class Plan(
-    @Json(name = "collaborators")
+    @SerializedName("collaborators")
     val collaborators: Int, // 0
-    @Json(name = "name")
-    val name: String, // Medium
-    @Json(name = "private_repos")
-    val privateRepos: Int, // 20
-    @Json(name = "space")
-    val space: Int // 400
+    @SerializedName("name")
+    val name: String, // free
+    @SerializedName("private_repos")
+    val privateRepos: Int, // 10000
+    @SerializedName("space")
+    val space: Int // 976562499
 )

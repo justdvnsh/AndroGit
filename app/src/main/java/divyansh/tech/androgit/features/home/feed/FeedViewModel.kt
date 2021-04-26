@@ -1,11 +1,12 @@
 package divyansh.tech.androgit.features.home.feed
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import divyansh.tech.data.models.Events.UserEventsItem
+import divyansh.tech.data.models.Events.UserEventItem
 import divyansh.tech.domain.home.FeedRepo
 import divyansh.tech.domain.home.UserRepo
 import divyansh.tech.utility.ResultWrapper
@@ -24,8 +25,8 @@ class FeedViewModel @Inject constructor(
     private val feedRepo: FeedRepo
 ): ViewModel() {
 
-    private val _events: MutableLiveData<ResultWrapper<List<UserEventsItem>>> = MutableLiveData()
-    val events: LiveData<ResultWrapper<List<UserEventsItem>>>
+    private val _events: MutableLiveData<ResultWrapper<List<UserEventItem>>> = MutableLiveData()
+    val events: LiveData<ResultWrapper<List<UserEventItem>>>
         get() = _events
 
     /*
@@ -37,8 +38,10 @@ class FeedViewModel @Inject constructor(
             userRepo.getCachedUser()
         }.first()
         val response = feedRepo.getEvents(username)
+        Log.i("viewmodel", response.body().toString())
         if (response.isSuccessful) {
             response.body()?.let {
+                Log.i("viewmodel", it.toString())
                 _events.postValue(ResultWrapper.Success(it))
             }
         } else _events.postValue(ResultWrapper.Error("Something Went wrong !!"))

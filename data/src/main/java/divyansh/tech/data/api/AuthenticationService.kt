@@ -2,7 +2,6 @@ package divyansh.tech.data.api
 
 import divyansh.tech.data.models.AuthToken
 import divyansh.tech.utility.C
-import divyansh.tech.utility.ResultWrapper
 import retrofit2.Response
 import retrofit2.http.*
 

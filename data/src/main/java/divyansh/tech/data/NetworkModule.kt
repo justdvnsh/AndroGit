@@ -11,7 +11,7 @@ import divyansh.tech.data.api.ProfileService
 import divyansh.tech.utility.C
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 /*
@@ -34,7 +34,7 @@ class NetworkModule {
             OkHttpClient.Builder().addInterceptor(interceptorClass).build()
         )
         .baseUrl(C.BASE_URL)
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     /*

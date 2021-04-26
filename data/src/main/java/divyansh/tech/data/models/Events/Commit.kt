@@ -1,18 +1,17 @@
 package divyansh.tech.data.models.Events
 
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
 data class Commit(
-    @Json(name = "author")
+    @SerializedName("author")
     val author: Author,
-    @Json(name = "distinct")
-    val distinct: Boolean, // false
-    @Json(name = "message")
-    val message: String, // chore: delete .travis.yml (#1084)
-    @Json(name = "sha")
-    val sha: String, // 03786a4a9ea60298b849edaeead5a60e32451011
-    @Json(name = "url")
-    val url: String // https://api.github.com/repos/justdvnsh/mentorship-android/commits/03786a4a9ea60298b849edaeead5a60e32451011
+    @SerializedName("distinct")
+    val distinct: Boolean, // true
+    @SerializedName("message")
+    val message: String, // added bottom bar to the main activity
+    @SerializedName("sha")
+    val sha: String, // 288517b6e9ea042e5c4568a52e6935e1d43ac598
+    @SerializedName("url")
+    val url: String // https://api.github.com/repos/justdvnsh/Bhagwad-Geeta/commits/288517b6e9ea042e5c4568a52e6935e1d43ac598
 )

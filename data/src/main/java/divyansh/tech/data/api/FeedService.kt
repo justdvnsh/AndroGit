@@ -1,6 +1,6 @@
 package divyansh.tech.data.api
 
-import divyansh.tech.data.models.Events.UserEventsItem
+import divyansh.tech.data.models.Events.UserEventItem
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,6 +18,6 @@ interface FeedService {
     @GET("/users/{username}/events")
     suspend fun getUserEvents(
         @Path("username") username: String
-    ): Response<List<UserEventsItem>>
+    ): Response<List<UserEventItem>>
 
 }

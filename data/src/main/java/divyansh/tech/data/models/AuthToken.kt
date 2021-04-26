@@ -1,10 +1,11 @@
 package divyansh.tech.data.models
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
+
 
 data class AuthToken(
-    @field:Json(name = "access_token")
+    @SerializedName( "access_token")
     val access_token: String,
-    @field:Json(name = "token_type")
+    @SerializedName("token_type")
     val token_type: String
 )
