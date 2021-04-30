@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Labels (
 
-	@SerializedName("id") val id : Int,
+	@SerializedName("id") val id : Long,
 	@SerializedName("node_id") val node_id : String,
 	@SerializedName("url") val url : String,
 	@SerializedName("name") val name : String,

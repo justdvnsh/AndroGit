@@ -1,6 +1,7 @@
 package divyansh.tech.androgit.features.home.issues
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -16,6 +17,7 @@ class IssuesAdapter(
     override fun getItemCount(): Int = 5
 
     override fun createFragment(position: Int): Fragment {
+        Toast.makeText(fragmentActivity.baseContext, "$position", Toast.LENGTH_SHORT).show()
         return when (position) {
             0 -> setupFragment(fragmentActivity.getString(R.string.all_issues))
             1 -> setupFragment(fragmentActivity.getString(R.string.assigned_issues))

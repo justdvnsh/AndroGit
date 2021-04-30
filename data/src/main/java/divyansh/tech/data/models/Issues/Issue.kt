@@ -22,7 +22,7 @@ data class Issue (
     @SerializedName("locked") val locked : Boolean,
     @SerializedName("assignee") val assignee : Assignee,
     @SerializedName("assignees") val assignees : List<Assignees>,
-    @SerializedName("milestone") val milestone : String,
+    @SerializedName("milestone") val milestone : Milestone,
     @SerializedName("comments") val comments : Int,
     @SerializedName("created_at") val created_at : String,
     @SerializedName("updated_at") val updated_at : String,
