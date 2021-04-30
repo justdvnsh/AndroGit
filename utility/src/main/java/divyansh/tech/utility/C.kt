@@ -21,4 +21,9 @@ object C {
     * USER CONSTANTS
     * */
     const val USER_CACHE_FILENAME = "user_profile"
+
+    /*
+    * PR Types
+    * */
+    enum class TYPE { ASSIGNED, CREATED, MENTIONED, REQUESTED }
 }
