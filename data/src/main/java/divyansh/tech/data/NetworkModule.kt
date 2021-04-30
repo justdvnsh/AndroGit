@@ -5,10 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import divyansh.tech.data.annotations.WithInterceptor
-import divyansh.tech.data.api.AuthenticationService
-import divyansh.tech.data.api.FeedService
-import divyansh.tech.data.api.IssueService
-import divyansh.tech.data.api.ProfileService
+import divyansh.tech.data.api.*
 import divyansh.tech.utility.C
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -85,4 +82,16 @@ class NetworkModule {
         retrofit: Retrofit
     ): IssueService =
         retrofit.create(IssueService::class.java)
+
+    /*
+    * Provides the pr service
+    * @param retrofit -> Retrofit instance
+    * @returns PullRequestService instance
+    * */
+    @Provides
+    @Singleton
+    fun providePrService(
+        retrofit: Retrofit
+    ): PullRequestsService =
+        retrofit.create(PullRequestsService::class.java)
 }

@@ -29,8 +29,6 @@ class IssueItemViewModel @Inject constructor(
     ) = viewModelScope.launch(Dispatchers.IO) {
         _issues.postValue(ResultWrapper.Loading())
         val response = issueRepo.fetchIssues(queryString, sort, status)
-//        Log.i("ISSUE", response.string().toString())
-//        Log.i("ISSUE ___", response.raw().request().url().toString())
         Log.i("ISSUE ___", Gson().toJson(response))
         if (response.isSuccessful) {
             response.body()?.let {

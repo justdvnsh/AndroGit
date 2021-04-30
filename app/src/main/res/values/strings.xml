@@ -11,4 +11,8 @@
     <string name="created_issues">Created</string>
     <string name="mentioned_issues">Mentioned</string>
     <string name="subscribed_issues">Subscribed</string>
+    <string name="mentioned">mentioned</string>
+    <string name="created">Created</string>
+    <string name="assigned">Assigned</string>
+    <string name="requested">Requested</string>
 </resources>
