@@ -10,6 +10,7 @@ import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.scopes.FragmentScoped
 import divyansh.tech.androgit.features.home.issues.IssuesAdapter
 import divyansh.tech.androgit.features.home.issues.IssuesItemFragment
+import divyansh.tech.androgit.features.home.pull_requests.PrAdapter
 
 /*
 * Module container for the dependencies of the fragment
@@ -18,10 +19,11 @@ import divyansh.tech.androgit.features.home.issues.IssuesItemFragment
 @InstallIn(FragmentComponent::class)
 class FragmentModule {
 
-//    @Provides
-//    @FragmentScoped
-//    fun provideIssuesItemFragment(): IssuesItemFragment = IssuesItemFragment()
-
+    /*
+    * Provides Issues Adapter
+    * @param -> Activity Context
+    * @returns instance of IssueAdapter
+    * */
     @Provides
     @FragmentScoped
     fun provideIssuesAdapter(
@@ -30,4 +32,16 @@ class FragmentModule {
         context as FragmentActivity
     )
 
+    /*
+    * Provides PrAdapter
+    * @param -> Activity Context
+    * @returns instance of Pr Adapter
+    * */
+    @Provides
+    @FragmentScoped
+    fun providePrAdapter(
+        @ActivityContext context: Context
+    ): PrAdapter = PrAdapter(
+        context as FragmentActivity
+    )
 }
