@@ -1,6 +1,7 @@
 package divyansh.tech.androgit.di
 
 import android.content.Context
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import dagger.Module
 import dagger.Provides
@@ -24,24 +25,24 @@ class FragmentModule {
     * @param -> Activity Context
     * @returns instance of IssueAdapter
     * */
-    @Provides
-    @FragmentScoped
-    fun provideIssuesAdapter(
-        @ActivityContext context: Context
-    ): IssuesAdapter = IssuesAdapter(
-        context as FragmentActivity
-    )
-
-    /*
-    * Provides PrAdapter
-    * @param -> Activity Context
-    * @returns instance of Pr Adapter
-    * */
-    @Provides
-    @FragmentScoped
-    fun providePrAdapter(
-        @ActivityContext context: Context
-    ): PrAdapter = PrAdapter(
-        context as FragmentActivity
-    )
+//    @Provides
+//    @FragmentScoped
+//    fun provideIssuesAdapter(
+//        @ActivityContext context: Context
+//    ): IssuesAdapter = IssuesAdapter(
+//        context as FragmentActivity
+//    )
+//
+//    /*
+//    * Provides PrAdapter
+//    * @param -> Activity Context
+//    * @returns instance of Pr Adapter
+//    * */
+//    @Provides
+//    @FragmentScoped
+//    fun providePrAdapter(
+//        @ActivityContext context: Context
+//    ): PrAdapter = PrAdapter(
+//        context as Fragment
+//    )
 }

@@ -15,7 +15,7 @@ import javax.inject.Inject
 class PullRequestsFragment: Fragment() {
 
     private lateinit var binding: FragmentPullRequestsBinding
-    @Inject lateinit var prAdapter: PrAdapter
+    private val prAdapter by lazy { PrAdapter(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,5 +46,12 @@ class PullRequestsFragment: Fragment() {
                 3 -> tab.text = getString(R.string.requested)
             }
         }.attach()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.run {
+            prPager.adapter = null
+        }
     }
 }

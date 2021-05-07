@@ -7,8 +7,8 @@ import divyansh.tech.androgit.R
 import divyansh.tech.utility.C
 
 class PrAdapter(
-    private val fragmentActivity: FragmentActivity
-): FragmentStateAdapter(fragmentActivity) {
+    private val fragment: Fragment
+): FragmentStateAdapter(fragment) {
     
     override fun getItemCount(): Int = 4
 

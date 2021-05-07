@@ -15,7 +15,7 @@ import javax.inject.Inject
 class IssuesFragment: Fragment() {
 
     private lateinit var binding: FragmentIssuesBinding
-    @Inject lateinit var issuesAdapter: IssuesAdapter
+    private val issuesAdapter by lazy { IssuesAdapter(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,5 +46,12 @@ class IssuesFragment: Fragment() {
                 4 -> tab.text = getString(R.string.subscribed_issues)
             }
         }.attach()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.run {
+            issuesPager.adapter = null
+        }
     }
 }

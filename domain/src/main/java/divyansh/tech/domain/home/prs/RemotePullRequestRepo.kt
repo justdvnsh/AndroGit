@@ -1,21 +1,15 @@
-package divyansh.tech.domain.home
+package divyansh.tech.domain.home.prs
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ActivityContext
-import dagger.hilt.android.qualifiers.ApplicationContext
 import divyansh.tech.data.api.PullRequestsService
 import divyansh.tech.data.models.PullRequests.Pulls
 import divyansh.tech.data.persistence.DataStoreManager
-import divyansh.tech.domain.R
 import divyansh.tech.utility.C
+import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.flow.first
 import retrofit2.Response
 import javax.inject.Inject
 
-/*
-* Repo for PR's
-* */
-class PullRequestRepo @Inject constructor(
+class RemotePullRequestRepo @Inject constructor(
     private val pullRequestsService: PullRequestsService,
     private val dataStoreManager: DataStoreManager
 ) {
@@ -31,21 +25,30 @@ class PullRequestRepo @Inject constructor(
         itemType: C.TYPE,
         sort: String = "sort:desc",
         state: String = "state:open"
-    ): Response<Pulls> {
+    ): ResultWrapper<*> {
         val username = dataStoreManager.username.first()
         return when (itemType) {
-            C.TYPE.CREATED -> pullRequestsService.getPullRequests(
+            C.TYPE.CREATED -> getResponse(
                 url = "https://api.github.com/search/issues?q=type:pr+is:pr+author:$username+$sort+$state"
             )
-            C.TYPE.ASSIGNED -> pullRequestsService.getPullRequests(
+            C.TYPE.ASSIGNED -> getResponse(
                 url = "https://api.github.com/search/issues?q=type:pr+is:pr+assignee:$username+$sort+$state"
             )
-            C.TYPE.MENTIONED -> pullRequestsService.getPullRequests(
+            C.TYPE.MENTIONED -> getResponse(
                 url = "https://api.github.com/search/issues?q=type:pr+is:pr+mentions:$username+$sort+$state"
             )
-            C.TYPE.REQUESTED -> pullRequestsService.getPullRequests(
+            C.TYPE.REQUESTED -> getResponse(
                 url = "https://api.github.com/search/issues?q=type:pr+is:pr+review-requested:$username+$sort+$state"
             )
         }
+    }
+
+    /*
+    * Util function
+    * */
+    private suspend fun getResponse(url: String): ResultWrapper<*> {
+        val response = pullRequestsService.getPullRequests(url)
+        return if (response.isSuccessful) ResultWrapper.Success(response.body())
+        else ResultWrapper.Error(response.message(), null)
     }
 }

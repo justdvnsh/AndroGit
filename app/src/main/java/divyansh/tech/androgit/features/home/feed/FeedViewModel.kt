@@ -7,10 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import divyansh.tech.data.models.Events.UserEventItem
-import divyansh.tech.domain.home.FeedRepo
-import divyansh.tech.domain.home.UserRepo
+import divyansh.tech.domain.home.feed.DefaultFeedRepo
+import divyansh.tech.domain.home.profile.UserRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -22,7 +23,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FeedViewModel @Inject constructor(
     private val userRepo: UserRepo,
-    private val feedRepo: FeedRepo
+    private val feedRepo: DefaultFeedRepo
 ): ViewModel() {
 
     private val _events: MutableLiveData<ResultWrapper<List<UserEventItem>>> = MutableLiveData()
@@ -34,16 +35,20 @@ class FeedViewModel @Inject constructor(
     * @returns Job
     * */
     fun getEvents() = viewModelScope.launch {
+        _events.postValue(ResultWrapper.Loading())
         val username = withContext(Dispatchers.IO) {
             userRepo.getCachedUser()
         }.first()
         val response = feedRepo.getEvents(username)
-        Log.i("viewmodel", response.body().toString())
-        if (response.isSuccessful) {
-            response.body()?.let {
-                Log.i("viewmodel", it.toString())
-                _events.postValue(ResultWrapper.Success(it))
+        response.collect {
+            when (it) {
+                is ResultWrapper.Success -> _events.postValue(
+                    ResultWrapper.Success(it.data as List<UserEventItem>)
+                )
+                is ResultWrapper.Error -> _events.postValue(
+                    ResultWrapper.Error(it.message.toString())
+                )
             }
-        } else _events.postValue(ResultWrapper.Error("Something Went wrong !!"))
+        }
     }
 }

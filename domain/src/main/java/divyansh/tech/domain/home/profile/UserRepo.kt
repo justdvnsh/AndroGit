@@ -1,4 +1,4 @@
-package divyansh.tech.domain.home
+package divyansh.tech.domain.home.profile
 
 import divyansh.tech.data.api.ProfileService
 import divyansh.tech.data.persistence.DataStoreManager

@@ -11,19 +11,18 @@ import divyansh.tech.androgit.R
 * View pager adapter for Issues
 * */
 class IssuesAdapter(
-    private val fragmentActivity: FragmentActivity
-): FragmentStateAdapter(fragmentActivity) {
+    private val fragment: Fragment
+): FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 5
 
     override fun createFragment(position: Int): Fragment {
-        Toast.makeText(fragmentActivity.baseContext, "$position", Toast.LENGTH_SHORT).show()
         return when (position) {
-            0 -> setupFragment(fragmentActivity.getString(R.string.all_issues))
-            1 -> setupFragment(fragmentActivity.getString(R.string.assigned_issues))
-            2 -> setupFragment(fragmentActivity.getString(R.string.created_issues))
-            3 -> setupFragment(fragmentActivity.getString(R.string.mentioned_issues))
-            4 -> setupFragment(fragmentActivity.getString(R.string.subscribed_issues))
+            0 -> setupFragment(fragment.getString(R.string.all_issues))
+            1 -> setupFragment(fragment.getString(R.string.assigned_issues))
+            2 -> setupFragment(fragment.getString(R.string.created_issues))
+            3 -> setupFragment(fragment.getString(R.string.mentioned_issues))
+            4 -> setupFragment(fragment.getString(R.string.subscribed_issues))
             else -> setupFragment("")
         }
     }

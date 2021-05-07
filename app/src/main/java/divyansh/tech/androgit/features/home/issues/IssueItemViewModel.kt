@@ -8,15 +8,16 @@ import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import divyansh.tech.data.models.Issues.Issue
-import divyansh.tech.domain.home.IssueRepo
+import divyansh.tech.domain.home.issues.DefaultIssueRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class IssueItemViewModel @Inject constructor(
-    private val issueRepo: IssueRepo
+    private val issueRepo: DefaultIssueRepo
 ): ViewModel() {
 
     private val _issues: MutableLiveData<ResultWrapper<List<Issue>>> = MutableLiveData()
@@ -29,12 +30,14 @@ class IssueItemViewModel @Inject constructor(
     ) = viewModelScope.launch(Dispatchers.IO) {
         _issues.postValue(ResultWrapper.Loading())
         val response = issueRepo.fetchIssues(queryString, sort, status)
-        Log.i("ISSUE ___", Gson().toJson(response))
-        if (response.isSuccessful) {
-            response.body()?.let {
-                Log.i("ISSUE", it.toString())
-                _issues.postValue(ResultWrapper.Success(it))
+        response.collect {
+            when (it) {
+                is ResultWrapper.Success ->
+                    _issues.postValue(ResultWrapper.Success(it.data as List<Issue>))
+                is ResultWrapper.Error ->
+                    _issues.postValue(ResultWrapper.Error(it.message.toString()))
+                else -> {}
             }
-        } else _issues.postValue(ResultWrapper.Error(response.message()))
+        }
     }
 }

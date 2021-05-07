@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import divyansh.tech.data.models.Users.User
-import divyansh.tech.domain.home.UserRepo
+import divyansh.tech.domain.home.profile.UserRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.launch
 import javax.inject.Inject

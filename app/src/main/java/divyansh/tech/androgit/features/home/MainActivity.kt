@@ -77,6 +77,6 @@ class MainActivity : AppCompatActivity() {
     private fun setCurrentFragment(frag: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainNavHost, frag)
-            commit()
+            commitNow()
         }
 }

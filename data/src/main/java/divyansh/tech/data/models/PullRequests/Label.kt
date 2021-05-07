@@ -11,7 +11,7 @@ data class Label(
     @SerializedName("description")
     val description: String, // PR needs an additional review or a maintainer's review.
     @SerializedName("id")
-    val id: Int, // 2047507995
+    val id: Long, // 2047507995
     @SerializedName("name")
     val name: String, // Status: Needs Review
     @SerializedName("node_id")
