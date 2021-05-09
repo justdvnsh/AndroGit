@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import divyansh.tech.androgit.databinding.FragmentPrItemsBinding
+import divyansh.tech.androgit.features.home.pull_requests.epoxy.EpoxyPrController
 import divyansh.tech.utility.C
 import divyansh.tech.utility.ResultWrapper
 
@@ -19,6 +21,10 @@ class PullRequestItemFragment: Fragment() {
     private lateinit var binding: FragmentPrItemsBinding
     private lateinit var itemType: C.TYPE
     private val viewModel: PRViewModel by viewModels()
+
+    private val prController by lazy {
+        EpoxyPrController()
+    }
 
     companion object {
         private const val ITEM_STRING = "item_string"
@@ -50,15 +56,23 @@ class PullRequestItemFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAllPRs(itemType)
         setupObservers()
+        setupRecyclerView()
     }
 
     private fun setupObservers() {
         viewModel.pullRequests.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is ResultWrapper.Success -> Log.i("PULLS", it.data.toString())
+                is ResultWrapper.Success -> prController.setData(it.data?.items)
                 is ResultWrapper.Error -> {}
                 is ResultWrapper.Loading -> {}
             }
         })
+    }
+
+    private fun setupRecyclerView() {
+        binding.prRv.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = prController.adapter
+        }
     }
 }
