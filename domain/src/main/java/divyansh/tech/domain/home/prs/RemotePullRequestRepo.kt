@@ -1,12 +1,10 @@
 package divyansh.tech.domain.home.prs
 
 import divyansh.tech.data.api.PullRequestsService
-import divyansh.tech.data.models.PullRequests.Pulls
 import divyansh.tech.data.persistence.DataStoreManager
 import divyansh.tech.utility.C
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.flow.first
-import retrofit2.Response
 import javax.inject.Inject
 
 class RemotePullRequestRepo @Inject constructor(

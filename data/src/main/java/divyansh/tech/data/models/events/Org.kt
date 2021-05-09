@@ -1,4 +1,4 @@
-package divyansh.tech.data.models.Events
+package divyansh.tech.data.models.events
 
 
 import com.google.gson.annotations.SerializedName

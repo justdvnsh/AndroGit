@@ -6,6 +6,10 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -76,5 +80,13 @@ dependencies {
     // dagger for viewmodel
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$dagger_viewModels"
     kapt "androidx.hilt:hilt-compiler:$dagger_compiler"
+
+    //Epoxy For Complex Recycler View
+    implementation "com.airbnb.android:epoxy:$epoxyVersion"
+    implementation "com.airbnb.android:epoxy-databinding:$epoxyVersion"
+    kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
+
+    //Flow layout
+    implementation 'org.apmem.tools:layouts:1.10@aar'
 
 }

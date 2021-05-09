@@ -1,8 +1,7 @@
-package divyansh.tech.data.models.Issues
+package divyansh.tech.data.models.issues
 
 import com.google.gson.annotations.SerializedName
-
-data class Assignee (
+data class Assignees (
 
 	@SerializedName("login") val login : String,
 	@SerializedName("id") val id : Int,

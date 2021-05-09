@@ -1,4 +1,4 @@
-package divyansh.tech.data.models.PullRequests
+package divyansh.tech.data.models.pullRequests
 
 
 import com.google.gson.annotations.SerializedName

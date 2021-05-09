@@ -1,18 +1,9 @@
 package divyansh.tech.domain.home.prs
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ActivityContext
-import dagger.hilt.android.qualifiers.ApplicationContext
-import divyansh.tech.data.api.PullRequestsService
-import divyansh.tech.data.models.PullRequests.Pulls
-import divyansh.tech.data.persistence.DataStoreManager
-import divyansh.tech.domain.R
 import divyansh.tech.utility.C
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import retrofit2.Response
 import javax.inject.Inject
 
 /*

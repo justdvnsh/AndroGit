@@ -1,8 +1,8 @@
-package divyansh.tech.data.models.PullRequests
+package divyansh.tech.data.models.pullRequests
 
 
 import com.google.gson.annotations.SerializedName
-import divyansh.tech.data.models.Users.User
+import divyansh.tech.data.models.users.User
 
 data class Item(
     @SerializedName("active_lock_reason")

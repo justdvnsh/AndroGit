@@ -1,4 +1,4 @@
-package divyansh.tech.data.models.Users
+package divyansh.tech.data.models.users
 
 
 import com.google.gson.annotations.SerializedName

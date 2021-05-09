@@ -1,13 +1,11 @@
 package divyansh.tech.androgit.features.home.issues
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
-import divyansh.tech.data.models.Issues.Issue
+import divyansh.tech.data.models.issues.Issue
 import divyansh.tech.domain.home.issues.DefaultIssueRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.Dispatchers

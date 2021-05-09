@@ -1,4 +1,4 @@
-package divyansh.tech.data.models.Issues
+package divyansh.tech.data.models.issues
 
 
 import com.google.gson.annotations.SerializedName

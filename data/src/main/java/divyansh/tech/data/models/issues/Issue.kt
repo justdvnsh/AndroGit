@@ -1,8 +1,8 @@
-package divyansh.tech.data.models.Issues
+package divyansh.tech.data.models.issues
 
 import com.google.gson.annotations.SerializedName
-import divyansh.tech.data.models.Events.Repo
-import divyansh.tech.data.models.Users.User
+import divyansh.tech.data.models.events.Repo
+import divyansh.tech.data.models.users.User
 
 data class Issue (
 
