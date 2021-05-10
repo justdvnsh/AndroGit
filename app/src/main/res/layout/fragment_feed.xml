@@ -8,10 +8,9 @@
         android:layout_height="match_parent"
         >
 
-        <TextView
-            android:id="@+id/feed"
-            android:text="Feed Fragment"
-            android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feed_rv"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
