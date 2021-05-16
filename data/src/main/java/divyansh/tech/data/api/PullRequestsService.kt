@@ -1,6 +1,6 @@
 package divyansh.tech.data.api
 
-import divyansh.tech.data.models.PullRequests.Pulls
+import divyansh.tech.data.models.pullRequests.Pulls
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Url

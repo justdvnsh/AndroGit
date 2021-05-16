@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="items"
+            type="divyansh.tech.data.models.pullRequests.Item" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="11dp"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{items.repositoryUrl.substring(29)}"
+                tools:text="anita-borg/mentorship-android"
+                android:id="@+id/repo_name_tv"
+                android:maxLines="1"
+                />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/endGuideLine"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="8d"
+                tools:text="8d"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/issue_number_tv"
+                />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/repo_name_tv"
+                app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+                app:layout_constraintBottom_toTopOf="@id/bottomGuideLine"
+                android:text="@{items.title}"
+                tools:text="User Pin's stored in plain text - Vulnerable to information leakage."
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:id="@+id/issue_title_tv"
+                app:flow_wrapMode="aligned"
+                android:maxLines="2"
+                />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/endGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/topGuideLine"
+                app:layout_constraintBottom_toBottomOf="@id/bottomGuideLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{String.valueOf(items.comments)}"
+                tools:text="5"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:id="@+id/number_of_comments_tv"
+                />
+
+            <org.apmem.tools.layouts.FlowLayout
+                android:id="@+id/flowLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                app:layout_constraintStart_toEndOf="@id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/issue_title_tv"
+                android:layout_marginTop="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/spacing_small"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottomGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/spacing_minimum"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/spacing_xl"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/spacing_medium"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

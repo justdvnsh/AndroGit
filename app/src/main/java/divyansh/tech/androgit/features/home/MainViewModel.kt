@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import divyansh.tech.data.models.Users.User
+import divyansh.tech.data.models.users.User
 import divyansh.tech.domain.home.profile.UserRepo
 import divyansh.tech.utility.ResultWrapper
 import kotlinx.coroutines.launch
@@ -20,7 +20,11 @@ class MainViewModel @Inject constructor(
     val user: LiveData<ResultWrapper<User>>
         get() = _user
 
-    fun getUserProfile() = viewModelScope.launch {
+    init {
+        getUserProfile()
+    }
+
+    private fun getUserProfile() = viewModelScope.launch {
         _user.postValue(ResultWrapper.Loading())
         val response = userRepo.getUserProfile()
         if (response.isSuccessful) {

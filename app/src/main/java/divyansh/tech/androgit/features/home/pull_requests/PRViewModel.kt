@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import divyansh.tech.data.models.PullRequests.Pulls
+import divyansh.tech.data.models.pullRequests.Pulls
 import divyansh.tech.domain.home.prs.DefaultPullRequestRepo
 import divyansh.tech.utility.C
 import divyansh.tech.utility.ResultWrapper

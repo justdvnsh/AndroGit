@@ -1,6 +1,6 @@
 package divyansh.tech.data.api
 
-import divyansh.tech.data.models.Users.User
+import divyansh.tech.data.models.users.User
 import retrofit2.Response
 import retrofit2.http.GET
 

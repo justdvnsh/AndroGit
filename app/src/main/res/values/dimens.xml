@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="list_title">18sp</dimen>
+    <dimen name="list_exceprt">15sp</dimen>
+    <dimen name="quiz_list_title">19sp</dimen>
+    <dimen name="categories_list_title">19sp</dimen>
+    <dimen name="quiz_counts">12sp</dimen>
+    <dimen name="quiz_category_sub_list_title">15sp</dimen>
+    <dimen name="title_margin_top">20dp</dimen>
+
+
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">120dp</dimen>
+    <dimen name="slide_title">30dp</dimen>
+    <dimen name="slide_desc">20dp</dimen>
+    <dimen name="desc_padding">40dp</dimen>
+
+    <!-- Login/Signup Activity Dimension -->
+    <dimen name="shape_round_bottom_right_radius">35dp</dimen>
+    <dimen name="shape_round_bottom_left_radius">35dp</dimen>
+    <dimen name="shape_round_top_left__radius">35dp</dimen>
+    <dimen name="shape_round_top_right_radius">35dp</dimen>
+    <dimen name="button_font_size">18sp</dimen>
+    <dimen name="edit_text_inside_padding">12dp</dimen>
+    <dimen name="marginn_from_top_bottom">40dp</dimen>
+    <dimen name="margin_btw_edit_text">32dp</dimen>
+    <dimen name="margin_btw_login_activity_texts">24dp</dimen>
+    <dimen name="edit_text_height">46dp</dimen>
+    <dimen name="login_margin_top_large">42dp</dimen>
+    <dimen name="login_margin_top_small">32dp</dimen>
+    <dimen name="login_margin_top_vsmall">20dp</dimen>
+    <dimen name="margin_viewpager_bottom">56dp</dimen>
+    <dimen name="login_screen_logo_width">120dp</dimen>
+    <dimen name="login_screen_logo_height">94dp</dimen>
+    <dimen name="login_screen_card_height">500dp</dimen>
+    <dimen name="card_elevation">0.5dp</dimen>
+    <dimen name="recycler_view_bottom_ad_padding">50dp</dimen>
+    <dimen name="course_image_size">68dp</dimen>
+    <dimen name="detail_course_icon_height">42dp</dimen>
+    <dimen name="detail_course_icon_width">42dp</dimen>
+    <dimen name="track_list_heading_size">18sp</dimen>
+    <dimen name="track_detail_category_heading">14sp</dimen>
+    <dimen name="track_list_heading_dropdown_size">22sp</dimen>
+    <dimen name="track_list_track_name_size">20sp</dimen>
+    <dimen name="card_list_corner_radius">36dp</dimen>
+
+    <dimen name="course_recycler_padding_start">20dp</dimen>
+    <dimen name="course_recycler_padding_end">20dp</dimen>
+    <dimen name="course_meta_start_padding">25dp</dimen>
+
+    <!--ToolBar height -->
+    <dimen name="toolBarHeight">56dp</dimen>
+    <!-- image width and height dimensions-->
+    <dimen name="imageWidthAndHeight_too_small">20dp</dimen>
+    <dimen name="imageWidthAndHeight_very_small">50dp</dimen>
+    <dimen name="imageWidthAndHeight_small">60dp</dimen>
+    <dimen name="imageWidthAndHeight_medium">70dp</dimen>
+    <dimen name="imageWidthAndHeight_large">80dp</dimen>
+    <dimen name="imageWidthAndHeight_extreme_large">100dp</dimen>
+
+    <!-- Spacing Dimensions -->
+    <dimen name="spacing_minimum">4dp</dimen>
+    <dimen name="spacing_very_small">8dp</dimen>
+    <dimen name="spacing_small">16dp</dimen>
+    <dimen name="spacing_normal">24dp</dimen>
+    <dimen name="spacing_medium">32dp</dimen>
+    <dimen name="spacing_large">40dp</dimen>
+    <dimen name="spacing_xl">56dp</dimen>
+
+
+    <!-- Font size -->
+    <dimen name="font_minimum">12sp</dimen>
+    <dimen name="font_very_small">14sp</dimen>
+    <dimen name="font_small">16sp</dimen>
+    <dimen name="font_normal">18sp</dimen>
+    <dimen name="font_medium">26sp</dimen>
+    <dimen name="popular_article_guideline">50dp</dimen>
+
+    <!--Bottom Navigation Bar height-->
+    <dimen name="bottomNavigationHeight">56dp</dimen>
+</resources>

@@ -1,8 +1,6 @@
 package divyansh.tech.data.api
 
-import divyansh.tech.data.models.Issues.Issue
-import divyansh.tech.data.models.Issues.IssueItems
-import okhttp3.ResponseBody
+import divyansh.tech.data.models.issues.IssueItems
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

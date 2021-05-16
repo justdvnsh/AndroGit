@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="divyansh.tech.androgit.features.home.feed.FeedFragment"
+        android:label="FeedFragment" />
+    <fragment
+        android:id="@+id/issuesFragment"
+        android:name="divyansh.tech.androgit.features.home.issues.IssuesFragment"
+        android:label="IssuesFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="divyansh.tech.androgit.features.home.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/pullRequestsFragment"
+        android:name="divyansh.tech.androgit.features.home.pull_requests.PullRequestsFragment"
+        android:label="PullRequestsFragment" />
+</navigation>
