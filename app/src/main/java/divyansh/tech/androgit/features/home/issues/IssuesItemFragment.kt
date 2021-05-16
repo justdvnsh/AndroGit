@@ -54,7 +54,7 @@ class IssuesItemFragment: Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.issues.observe(viewLifecycleOwner, Observer {
+        viewModel.issues.observe(viewLifecycleOwner, {
             when (it) {
                 is ResultWrapper.Success -> Log.i("ISSUE", it.data.toString())
                 is ResultWrapper.Error -> {}
